@@ -4,7 +4,6 @@ public record CustomerResponseDto(
         String fullname,
         String email,
         String phonenumber,
-        String address,
         String username
 
 ) {

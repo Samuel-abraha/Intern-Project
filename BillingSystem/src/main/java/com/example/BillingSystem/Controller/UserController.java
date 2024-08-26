@@ -4,9 +4,11 @@ import com.example.BillingSystem.Dto.UserDto;
 import com.example.BillingSystem.Service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/User")
 public class UserController {
     private final UserService userService;
 

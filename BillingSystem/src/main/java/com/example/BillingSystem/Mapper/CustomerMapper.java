@@ -14,7 +14,6 @@ public class CustomerMapper {
         customer.setFullname(dto.fullname());
         customer.setEmail(dto.email());
         customer.setPhonenumber(dto.phonenumber());
-        customer.setAddress(dto.address());
 
         var user = new User();
         user.setUsername(dto.userDto().username());
@@ -32,7 +31,6 @@ public class CustomerMapper {
                 customer.getFullname(),
                 customer.getEmail(),
                 customer.getPhonenumber(),
-                customer.getAddress(),
                 customer.getUser().getUsername());
     }
 

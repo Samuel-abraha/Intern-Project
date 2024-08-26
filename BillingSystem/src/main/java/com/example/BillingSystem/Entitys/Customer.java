@@ -21,7 +21,6 @@ public class Customer {
 
     @Column(unique = true)
     private String phonenumber;
-    private String address;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 
@@ -57,7 +56,6 @@ public class Customer {
         this.fullname = fullname;
         this.email = email;
         this.phonenumber = phonenumber;
-        this.address = address;
         this.created_at = created_at;
         this.updated_at = updated_at;
         this.user = user;
@@ -94,14 +92,6 @@ public class Customer {
 
     public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public LocalDateTime getCreated_at() {

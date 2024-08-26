@@ -4,6 +4,7 @@ import Dashboard from "../pages/Dashboard";
 import Customers from "../pages/Customers";
 import Invoices from "../pages/Invoices";
 import Services from "../pages/Services";
+import SignIn from "../pages/SignIn";
 
 const Layout = () => {
   const location = useLocation();
@@ -20,7 +21,7 @@ const Layout = () => {
       Content = Services;
       break;
     case "/SignIn":
-      Content = SignUp;
+      Content = SignIn;
       break;
     default:
       Content = Dashboard;
@@ -63,10 +64,10 @@ const Layout = () => {
             to="/SignIn"
             className="text-black bg-white px-4 py-2 rounded transition duration-300"
             >
-            Sign up
+            Sign In
           </Link>
           {/* <button className="text-black bg-white px-4 py-2 rounded transition duration-300">
-            Sign up
+            Sign In
           </button> */}
         </div>
       </nav>

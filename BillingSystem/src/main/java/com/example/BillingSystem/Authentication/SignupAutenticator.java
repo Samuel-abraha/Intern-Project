@@ -20,7 +20,7 @@ public class SignupAutenticator {
         this.fullname= customerdto.fullname();
         this.email=customerdto.email();
         this.phonenumber= customerdto.phonenumber();
-        this.address=customerdto.address();
+
         UserDto udto=customerdto.userDto();
         this.username= udto.username();
         this.password= udto.password();

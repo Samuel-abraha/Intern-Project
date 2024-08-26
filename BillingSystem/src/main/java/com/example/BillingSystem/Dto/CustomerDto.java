@@ -9,7 +9,6 @@ public record CustomerDto(
         String email,
         @NotEmpty
         String phonenumber,
-        String address,
         UserDto userDto
 ) {
 }
