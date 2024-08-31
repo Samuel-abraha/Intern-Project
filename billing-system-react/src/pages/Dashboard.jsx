@@ -27,7 +27,7 @@ const Dashboard = () => {
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
   return (
-    <div className="p-6 bg-neutral-900 shadow-md rounded-lg m-10">
+    <div className="p-10 bg-neutral-900 shadow-md ">
       <h1 className="text-3xl font-bold mb-4 text-white">Dashboard</h1>
       <p className="text-white mb-4">Welcome aboard, Admin</p>
       

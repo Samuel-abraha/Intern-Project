@@ -1,28 +1,61 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const SignIn = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isErrorVisible, setIsErrorVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Frontend validation
+    if (username.trim() === '' || password.trim() === '') {
+      setError('Username and password cannot be empty');
+      setIsErrorVisible(true);
+      return;
+    }
+    
+    if (password.length <= 8) {
+      setError('Password must be longer than 8 characters');
+      setIsErrorVisible(true);
+      return;
+    }
+  
     try {
-      const response = await axios.post('/api/User/userLogin', {
-        username,
-        password,
-      });
+      setIsLoading(true);
+      setIsErrorVisible(false); // Hide any previous error
 
-      if (response.data === 'successfully logined') {
-        navigate('/dashboard');
-      } else {
-        setError(response.data); // Display error from backend
-      }
+      const response = await axios.post('/api/User/userLogin', { username, password });
+      
+      setTimeout(() => {
+        setIsLoading(false);
+        const { data } = response;
+
+        if (response.status === 200) {
+          localStorage.setItem('username', username); // Save username in local storage
+          
+          if (data.includes('Admin')) {
+            navigate('/dashboard'); // Navigate to admin dashboard
+          } else if (data.includes('Customer')) {
+            navigate(''); // Navigate to customer dashboard
+          }
+        } else {
+          setError(data);
+          setIsErrorVisible(true);
+        }
+      }, 2000);
+
     } catch (err) {
-      setError('Something went wrong. Please try again.');
+      setTimeout(() => {
+        setIsLoading(false);
+        setError('Sorry, looks like that’s the wrong username or password.');
+        setIsErrorVisible(true);
+      }, 2000);
     }
   };
 
@@ -73,7 +106,20 @@ const SignIn = () => {
             </div>
           </div>
 
-          {error && <div className="text-red-500">{error}</div>}
+          {/* Loading animation */}
+          {isLoading && (
+            <div className="flex justify-center items-center mt-6">
+              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-green-500"></div>
+              <p className="ml-3 text-white">Loading...</p>
+            </div>
+          )}
+          
+          {/* Error animation */}
+          {isErrorVisible && error && (
+            <div className="text-red-500 text-center mt-4">
+              {error}
+            </div>
+          )}
 
           <div>
             <button
@@ -84,6 +130,16 @@ const SignIn = () => {
             </button>
           </div>
         </form>
+        
+        {/* Sign Up Link */}
+        <div className="mt-6 text-center">
+          <p className="text-sm text-white">
+            Don't have an account?{' '}
+            <Link to="/SignUp" className="font-semibold text-green-500 hover:text-green-700">
+              Sign up
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const Invoices = () => {
   useEffect(() => {
     const fetchInvoices = async () => {
       try {
-        const response = await axios.get("/invoices/All");
+        const response = await axios.get("/Admin/Invoices/All");
         setInvoices(response.data);
       } catch (error) {
         console.error("Error fetching invoices:", error);
@@ -18,7 +18,7 @@ const Invoices = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-neutral-900 shadow-md rounded-lg">
+    <div className="p-10 bg-neutral-900 shadow-md ">
       <h1 className="text-3xl font-bold mb-4 text-white">Invoices</h1>
       <p className="text-white mb-4">List of invoices with their details.</p>
       <table className="w-full bg-neutral-900 rounded-lg overflow-hidden">
