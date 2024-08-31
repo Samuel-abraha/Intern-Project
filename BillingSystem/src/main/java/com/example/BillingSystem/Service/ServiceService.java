@@ -6,6 +6,9 @@ import com.example.BillingSystem.Mapper.ServiceMapper;
 import com.example.BillingSystem.Repository.ServiceRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ServiceService {
 
@@ -23,6 +26,13 @@ public class ServiceService {
         var savedService = serviceRepository.save(service);
 
         return serviceMapper.toServiceResponseDto(savedService);
+    }
+
+    public List<ServiceResponseDto> findAllServices(){
+        return serviceRepository.findAll()
+                .stream()
+                .map(serviceMapper::toServiceResponseDto)
+                .collect(Collectors.toList());
     }
 
     public ServiceResponseDto findServiceByserviceName(String serviceName){       //fetching Service by name

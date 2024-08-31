@@ -18,6 +18,7 @@ public class CustomerMapper {
         var user = new User();
         user.setUsername(dto.userDto().username());
         user.setPassword(dto.userDto().password());
+        user.setRole(User.Role.CUSTOMER);
 
         customer.setUser(user);
 

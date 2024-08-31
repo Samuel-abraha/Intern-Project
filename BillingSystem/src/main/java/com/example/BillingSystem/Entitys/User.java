@@ -16,10 +16,18 @@ public class User {
 
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     @OneToOne(
             mappedBy = "user"
     )
     private Customer customer;
+
+    public enum Role {
+        ADMIN, CUSTOMER
+    }
+
 
     public User() {
     }
@@ -61,5 +69,13 @@ public class User {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

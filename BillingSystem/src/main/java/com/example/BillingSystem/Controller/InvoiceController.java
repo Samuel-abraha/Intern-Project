@@ -34,9 +34,6 @@ public class InvoiceController {
         return invoiceService.findInvoiceItemByCustomerPhonenumber(phoneNumber);
     }
 
-    @GetMapping("/All")
-    public List<InvoiceResponseDto> findAllInvoice(){
-        return invoiceService.findAllInvoices();
-    }
+
 
 }

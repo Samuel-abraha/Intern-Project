@@ -1,11 +1,10 @@
 package com.example.BillingSystem.Controller;
 
 import com.example.BillingSystem.Dto.UserDto;
+import com.example.BillingSystem.Dto.UserResponseDto;
 import com.example.BillingSystem.Service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/User")
@@ -18,9 +17,22 @@ public class UserController {
 
 
     @PostMapping("/userLogin")
-    public String userLogin(
+    public ResponseEntity<String> userLogin(
             @RequestBody UserDto dto
     ){
         return userService.userLogin(dto);
     }
+
+    // for adding admin
+    @PostMapping("/Add")
+    public ResponseEntity<String> addUser(@RequestBody UserDto dto){
+        return userService.addUser(dto);
+    }
+
+    // Fetch admin profile by username
+    @GetMapping("/Admin/{username}")
+    public ResponseEntity<UserResponseDto> getAdminProfileByUsername(@PathVariable String username) {
+        return userService.getAdminProfileByUsername(username);
+    }
+
 }

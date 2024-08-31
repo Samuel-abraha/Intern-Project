@@ -2,7 +2,7 @@ package com.example.BillingSystem.Mapper;
 
 import com.example.BillingSystem.Dto.ServiceDto;
 import com.example.BillingSystem.Dto.ServiceResponseDto;
-import com.example.BillingSystem.Service.BillingService;
+import com.example.BillingSystem.Entitys.BillingService;
 import org.springframework.stereotype.Service;
 
 
@@ -21,7 +21,7 @@ public class ServiceMapper {
     }
 
     public ServiceResponseDto toServiceResponseDto(BillingService service) {
-        // Ensure correct method naming
+
         return new ServiceResponseDto(
                 service.getServiceName(),
                 service.getUnitPrice(),

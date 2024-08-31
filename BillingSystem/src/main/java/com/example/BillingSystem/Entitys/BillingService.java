@@ -1,8 +1,5 @@
-package com.example.BillingSystem.Service;
+package com.example.BillingSystem.Entitys;
 
-import com.example.BillingSystem.Entitys.Invoice;
-import com.example.BillingSystem.Entitys.InvoiceItem;
-import com.example.BillingSystem.Entitys.Usage;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;

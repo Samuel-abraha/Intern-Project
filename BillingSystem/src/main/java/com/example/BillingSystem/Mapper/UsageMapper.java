@@ -3,7 +3,7 @@ package com.example.BillingSystem.Mapper;
 import com.example.BillingSystem.Entitys.Customer;
 import com.example.BillingSystem.Dto.UsageDto;
 import com.example.BillingSystem.Dto.UsageResponseDto;
-import com.example.BillingSystem.Service.BillingService;
+import com.example.BillingSystem.Entitys.BillingService;
 import com.example.BillingSystem.Entitys.Usage;
 import org.springframework.stereotype.Service;
 

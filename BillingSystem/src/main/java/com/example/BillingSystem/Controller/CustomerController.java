@@ -5,6 +5,7 @@ import com.example.BillingSystem.Dto.CustomerDto;
 import com.example.BillingSystem.Dto.CustomerResponseDto;
 import com.example.BillingSystem.Service.CustomerService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class CustomerController {
     }
 
     @PostMapping("/add")
-    public CustomerResponseDto addCustomer(
+    public ResponseEntity<String> addCustomer(
             @Valid @RequestBody CustomerDto dto
     ){
         return customerService.addCustomer(dto);
@@ -48,11 +49,6 @@ public class CustomerController {
         return customerService.findCustomerByFullname(fullname);
     }
 
-    @GetMapping("/All")
-    public List<CustomerResponseDto> findAllCustomers()
-        {
-            return customerService.findAllCustomers();
-        }
 
                 // this is for update
 //    @PutMapping(".Customer/{customer_id}")
