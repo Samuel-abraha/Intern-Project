@@ -18,7 +18,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-gray-800 shadow-md rounded-lg">
+    <div className="p-6 bg-neutral-900 shadow-md rounded-lg">
       <h1 className="text-3xl font-bold mb-4 text-white">Services</h1>
       <p className="text-white mb-4">List of services provided by the system.</p>
       <ul className="space-y-4">
