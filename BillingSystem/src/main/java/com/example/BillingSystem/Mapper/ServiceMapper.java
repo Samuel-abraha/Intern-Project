@@ -21,7 +21,7 @@ public class ServiceMapper {
     }
 
     public ServiceResponseDto toServiceResponseDto(BillingService service) {
-
+        // Ensure correct method naming
         return new ServiceResponseDto(
                 service.getServiceName(),
                 service.getUnitPrice(),
