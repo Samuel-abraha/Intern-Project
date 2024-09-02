@@ -51,7 +51,7 @@ public class CustomerController {
 
 
                 // this is for update
-//    @PutMapping(".Customer/{customer_id}")
+//    @PutMapping("/Customer/{customer_id}")
 //    public ResponseEntity<CustomerResponseDto> updateCustomer(
 //            @PathVariable("customer_id") Long id,
 //            @Valid @RequestBody CustomerDto dto) {

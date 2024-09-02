@@ -24,6 +24,11 @@ public class User {
     )
     private Customer customer;
 
+    @OneToOne(
+            mappedBy = "user"
+    )
+    private Admin admin;
+
     public enum Role {
         ADMIN, CUSTOMER
     }

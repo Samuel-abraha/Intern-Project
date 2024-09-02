@@ -29,10 +29,6 @@ public class UserController {
         return userService.addUser(dto);
     }
 
-    // Fetch admin profile by username
-    @GetMapping("/Admin/{username}")
-    public ResponseEntity<UserResponseDto> getAdminProfileByUsername(@PathVariable String username) {
-        return userService.getAdminProfileByUsername(username);
-    }
+
 
 }

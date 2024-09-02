@@ -48,18 +48,5 @@ public class UserService {
         return ResponseEntity.ok("User added successfully");
     }
 
-    public ResponseEntity<UserResponseDto> getAdminProfileByUsername(String username) {
-        // Fetch user by username
-        User user = userRepository.findByUsername(username);
 
-        // Check if user exists and has ADMIN role
-        if (user != null && user.getRole() == User.Role.ADMIN) {
-            // Convert User entity to UserResponseDto
-            UserResponseDto userResponseDto = userMapper.toUserResponseDto(user);
-            return ResponseEntity.ok(userResponseDto);
-        }
-
-        // Return Not Found if user doesn't exist or is not an admin
-        return ResponseEntity.notFound().build();
-    }
 }
