@@ -26,7 +26,7 @@ const SignUp = () => {
       return;
     }
   
-    const customerDto = {
+    const adminDto = {
       fullname,
       email,
       phonenumber,
@@ -34,7 +34,7 @@ const SignUp = () => {
     };
   
     try {
-      const response = await axios.post('/api/Customers/add', customerDto);
+      const response = await axios.post('/api/Admin/add', adminDto);
   
       if (response.status === 200 && response.data === 'Successfully Registered') {
         setSuccess('Signup successful! Redirecting to SignIn...');
